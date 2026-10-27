@@ -1,0 +1,8 @@
+module m : 
+  sig 
+    type t = int;
+    val y : t;
+  end = struct
+          type t = int;
+          let y : t = 10;
+        end;

@@ -1,0 +1,87 @@
+cabal-version:      2.4
+name:               EnvML
+version:            0.1.0.0
+author:             anonymous
+maintainer:         anonymous
+synopsis:           First-class modules with polymorphic environments
+extra-source-files: README.md
+                    Makefile
+                    examples/*.eml
+                    src/CoreFE/Parser/Lexer.x
+                    src/CoreFE/Parser/Parser.y
+                    src/EnvML/Parser/Lexer.x
+                    src/EnvML/Parser/Parser.y
+                    src/WASM.hs
+                    docs/index.html
+
+library
+    hs-source-dirs:   src
+    
+    exposed-modules:    Repl
+                        PrettyWeb
+                        EnvML.Elab
+                        EnvML.Syntax
+                        EnvML.Parse
+                        EnvML.Parser.Parser
+                        EnvML.Parser.Lexer
+                        CoreFE.Eval
+                        CoreFE.Check
+                        CoreFE.Named
+                        CoreFE.Syntax
+                        CoreFE.DeBruijn
+                        CoreFE.Repl
+                        CoreFE.Parser.Parser
+                        CoreFE.Parser.Lexer
+    
+    build-depends:    base >= 4.17 && < 5,
+                      QuickCheck,
+                      parsec,
+                      megaparsec,
+                      parser-combinators,
+                      array,
+                      containers,
+                      text,
+                      haskeline,
+                      filepath,
+                      directory,
+                      configurator,
+                      bytestring,
+                      binary,
+                      mtl
+    
+    ghc-options:      -Wall
+    default-language: Haskell2010
+
+executable EnvML
+    main-is:          Main.hs
+    
+    build-depends:    haskeline ^>=0.8.2.1,
+                      base >= 4.17 && < 5,
+                      EnvML
+
+    hs-source-dirs:   app
+    default-language: Haskell2010
+
+test-suite tests
+    type: exitcode-stdio-1.0
+    main-is: Spec.hs
+                     
+    hs-source-dirs: test
+
+    other-modules:
+        CoreFE.CoreFESpec
+        CoreFE.DeBruijnSpec
+        EnvML.ElabSpec
+
+    build-depends:
+        base >= 4.7 && <5,
+        hspec,
+        EnvML,
+        QuickCheck,
+        directory,
+        filepath
+
+    build-tool-depends:
+        hspec-discover:hspec-discover
+
+    default-language: Haskell2010

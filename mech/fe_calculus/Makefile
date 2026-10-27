@@ -1,5 +1,6 @@
 COQPROJECT := _CoqProject
 COQMK      := Makefile.coq
+COQDIRS   := . source
 
 # ---- build ---------------------------------------------------------------
 all: $(COQMK)
@@ -11,10 +12,10 @@ $(COQMK): $(COQPROJECT)
 
 # ---- cleaning ------------------------------------------------------------
 clean:
-	rm -f *.vo *.vok *.vos *.glob
-	rm -f .*.aux *.aux
-	rm -f .*.d *.d
-	rm -f .lia.cache
+	rm -f $(foreach dir,$(COQDIRS),$(addprefix $(dir)/,*.vo *.vok *.vos *.glob))
+	rm -f $(foreach dir,$(COQDIRS),$(addprefix $(dir)/,.*.aux *.aux))
+	rm -f $(foreach dir,$(COQDIRS),$(addprefix $(dir)/,.*.d *.d))
+	rm -f $(foreach dir,$(COQDIRS),$(addprefix $(dir)/,.lia.cache .nia.cache))
 	rm -f $(COQMK) $(COQMK).conf .$(COQMK).d
 	rm -f Makefile.coq.bak CoqMakefile CoqMakefile.conf
 	rm -f Makefile.conf .Makefile.d

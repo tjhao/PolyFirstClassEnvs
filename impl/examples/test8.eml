@@ -1,0 +1,12 @@
+
+type a = int;
+
+module policy1 =
+  functor (type t) ->
+    struct
+      let id : t -> t = (fun (x) -> x);
+    end;
+
+let result = policy1 @a;
+
+let final = (result::(sig val id : a -> a; end)).id(1);

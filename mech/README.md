@@ -3,11 +3,11 @@
 - Title of the paper: **Polymorphic First-Class Environments**
 
 ## Introduction
-This is the mechanical formalization of the $F_{E}$ calculus associated with the paper: Polymorphic First-Class Environments. The metatheory of the explicitly-typed calculus and of its implicitly-typed variant has been fully formalized in the Rocq theorem prover. The development is split into two folders: `fe_calculus`, for the explicitly-typed calculus (the main calculus presented in the paper), and `fe_implicit`, for the implicitly-typed variant (presented in Section 5).
+This is the mechanical formalization of the $F_{E}$ calculus associated with the paper: Polymorphic First-Class Environments. The metatheory of the explicitly-typed calculus and of its implicitly-typed variant has been fully formalized in the Rocq theorem prover. The development is split into two folders: `fe_calculus`, for the explicitly-typed calculus (the main calculus presented in the paper), and `fe_implicit`, for the implicitly-typed variant (presented in Section 5). The source-module elaboration from Section 6.2 and Appendix G is in `fe_calculus/source/`, built together with the explicit calculus.
 
 ## Prerequisites
 
-Our Rocq proofs are verified in **Rocq 9.1.1**. The recommended way to install Rocq is via `OPAM`. Please refer to [here](https://opam.ocaml.org/) for detailed steps. Alternatively, one could download the pre-built packages for Windows and MacOS via [here](https://github.com/rocq-prover/rocq/releases/tag/V9.1.1) (9.1.1). Choose a suitable installer according to your platform.
+The existing development targets **Rocq 9.1.1**. This import is also checked with **Rocq 9.1.0**. The recommended way to install Rocq is via `OPAM`. Please refer to [here](https://opam.ocaml.org/) for detailed steps. Alternatively, one could download the pre-built packages for Windows and MacOS via [here](https://github.com/rocq-prover/rocq/releases/tag/V9.1.1) (9.1.1). Choose a suitable installer according to your platform.
 
 Make sure `Rocq` is installed (type `coqc` in the terminal, if you see "command not found" this means you have not properly installed Rocq).
 
@@ -72,3 +72,25 @@ This development contains two folders, `fe_calculus` (the explicit calculus) and
 | Theorem 5.4    | Conserve.v               | conserve_new      |
 | Theorem 5.5    | DynamicConservativity.v  | dyn_complete_imp  |
 | Theorem 5.6  | DynamicConservativity.v  | dyn_conserve_imp  |
+
+
+### Source modules and elaboration (folder `fe_calculus/source`)
+
+| Paper definition or result | File | Name in Rocq |
+| --- | --- | --- |
+| Source syntax | `Syntax.v` | `smod`, `sdecl`, `sig_shape`, `unique_labels` |
+| Elaboration and expansion rules | `Elaboration.v` | `elab`, `elabd`, `expands` |
+| Closed Types are Shift-Invariant | `Lemmas.v` | `closed_tshift_id` |
+| Environment Growth | `Lemmas.v` | `get_var_grow` |
+| Existence of Label Lookup | `Lemmas.v` | `rlk_exists` |
+| Soundness of Expansion | `Lemmas.v` | `expands_sound` |
+| Elaboration Preserves Typing | `Preservation.v` | `elab_elabd_preservation`, `elab_preservation`, `elabd_preservation` |
+
+The module proofs use the existing explicit core. `make -C mech/fe_calculus`
+from the repository root builds them with the core, and `make clean` in that
+directory removes generated files from both the core and `source/`.
+
+The preservation result concerns a relational nameless source language. It is
+not a correctness theorem for the named Haskell frontend. See the
+[source proof README](fe_calculus/source/README.md) for provenance and the
+explicit signature-shape premise in expansion soundness.

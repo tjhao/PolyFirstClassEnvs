@@ -24,3 +24,22 @@ Makefile.conf
 
 # Editor backups
 *~
+
+# Haskell build products and generated parsers
+/impl/dist-newstyle/
+/impl/.envml_history
+/impl/src/CoreFE/Parser/Lexer.hs
+/impl/src/CoreFE/Parser/Parser.hs
+/impl/src/EnvML/Parser/Lexer.hs
+/impl/src/EnvML/Parser/Parser.hs
+*.hi
+*.o
+*.dyn_hi
+*.dyn_o
+*.info
+/impl/src/WASM_stub.h
+/impl/docs/WASM.wasm
+/impl/docs/ghc_wasm_jsffi.js
+
+# Generated Rocq dependency files
+**/.Makefile*.d

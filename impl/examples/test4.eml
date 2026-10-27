@@ -1,0 +1,2 @@
+let x : sig val res : int; end = struct let res = 2; end;
+let z : int = x.res;
