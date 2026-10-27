@@ -62,8 +62,8 @@ They establish typing preservation for the formal nameless source language.
 The Haskell implementation has additional conveniences, including booleans,
 lists and named syntax.
 
-`src/WASM.hs` and `docs/index.html` are retained as browser frontend sources.
-This import does not include generated WebAssembly binaries; playground
-building and hosting are a separate follow-up.
+The [online playground](https://jam-khan.github.io/EnvML/) is hosted separately.
+`src/WASM.hs` and `docs/index.html` are retained as browser frontend sources;
+generated WebAssembly binaries are not included here.
 
 `make clean` removes generated parsers and native build outputs.
