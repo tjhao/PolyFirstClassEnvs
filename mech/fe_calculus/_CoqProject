@@ -1,0 +1,10 @@
+-R . Top
+LibTactics.v
+Teq.v
+ExpSyntax.v
+Semantics.v
+Safety.v
+Conserve.v
+Decide.v
+Erased.v
+LogRel.v
