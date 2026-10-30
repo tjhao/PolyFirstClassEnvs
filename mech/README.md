@@ -3,7 +3,7 @@
 - Title of the paper: **Polymorphic First-Class Environments**
 
 ## Introduction
-This is the mechanical formalization of the $F_{E}$ calculus associated with the paper: Polymorphic First-Class Environments. The metatheory of the explicitly-typed calculus and of its implicitly-typed variant has been fully formalized in the Rocq theorem prover. The development is split into two folders: `fe_calculus`, for the explicitly-typed calculus (the main calculus presented in the paper), and `fe_implicit`, for the implicitly-typed variant (presented in Section 5). The source-module elaboration from Section 6.2 and Appendix G is in `fe_calculus/source/`, built together with the explicit calculus.
+This is the mechanical formalization of the $F_{E}$ calculus associated with the paper: Polymorphic First-Class Environments. The metatheory of the explicitly-typed calculus and of its implicitly-typed variant has been fully formalized in the Rocq theorem prover. The development is split into two folders: `fe_calculus`, for the explicitly-typed calculus (the main calculus presented in the paper), and `fe_implicit`, for the implicitly-typed variant (presented in Section 5). The source-module elaboration from Section 6.2 and Appendix F is in `fe_calculus/source/`, built together with the explicit calculus.
 
 ## Prerequisites
 

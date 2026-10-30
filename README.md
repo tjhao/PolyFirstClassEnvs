@@ -47,7 +47,7 @@ The [Rocq development](mech/README.md) is organized as follows:
 | --- | --- |
 | [`mech/fe_calculus/`](mech/fe_calculus/) | Explicit calculus and its metatheory |
 | [`mech/fe_implicit/`](mech/fe_implicit/) | Implicitly typed variant (Section 5) |
-| [`mech/fe_calculus/source/`](mech/fe_calculus/source/README.md) | Module-language elaboration (Section 6.2 and Appendix G) |
+| [`mech/fe_calculus/source/`](mech/fe_calculus/source/README.md) | Module-language elaboration (Section 6.2 and Appendix F) |
 
 The development targets **Rocq 9.1.1** and is also checked with **Rocq 9.1.0**.
 `LibTactics.v` is included. Make sure `coqc` and `coq_makefile` are on `PATH`;

@@ -1,7 +1,7 @@
-# Appendix G: module elaboration
+# Appendix F: module elaboration
 
 This directory formalizes the source language of first-class modules in
-Appendix G, “A Source Language and its Elaboration,” including functors,
+Appendix F, “A Source Language and its Elaboration,” including functors,
 declarations, sandboxing, and module merge. It elaborates into the explicit
 calculus in `mech/fe_calculus/` and proves that elaboration preserves typing.
 
@@ -13,7 +13,7 @@ The four `.v` files were imported unchanged from
 They use this repository's existing `Teq`, `ExpSyntax`, `Semantics`, and `Safety`
 development through the `Top.source` namespace.
 
-| Appendix G definition or result | Rocq file | Definition or theorem |
+| Appendix F definition or result | Rocq file | Definition or theorem |
 | --- | --- | --- |
 | Module expressions and declarations | `Syntax.v` | `smod`, `sdecl` |
 | Signature shape, label membership, uniqueness | `Syntax.v` | `sig_shape`, `has_lbl`, `unique_labels` |
